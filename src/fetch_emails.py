@@ -14,8 +14,8 @@ def main():
 
     # Store emails in DB
     db = Database(config.DB_URL)
-    for email in emails:
-        db.insert_email(email)
+    db.insert_email(emails)
+
 
     db.close()
     print(f"Fetched and stored {len(emails)} emails.")

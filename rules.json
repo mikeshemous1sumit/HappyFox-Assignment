@@ -62,7 +62,7 @@
       "actions": [
         {
           "action": "Move Message",
-          "destination": "IMPORTANT"
+          "destination": "INBOX"
         }
       ]
     },

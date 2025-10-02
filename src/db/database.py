@@ -10,19 +10,23 @@ class Database:
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
 
-    def insert_email(self, email_data: Dict) -> None:
+    def insert_email(self, emails_data: List[Dict]) -> None:
         session = self.Session()
-        email = Email(
-            id=email_data.get('id'),
-            from_address=email_data.get('from'),
-            to_address=email_data.get('to'),
-            subject=email_data.get('subject', ""),
-            message=email_data.get('message', ""),
-            received_date=_convert_timestamp(email_data.get('received')),
-            is_read=email_data.get('is_read', False)
-        )
-        if not session.query(Email).filter_by(id=email.id).first():
-            session.add(email)
+        email_objs = []
+        for email_data in emails_data:
+            email = Email(
+                id=email_data.get('id'),
+                from_address=email_data.get('from'),
+                to_address=email_data.get('to'),
+                subject=email_data.get('subject', ""),
+                message=email_data.get('message', ""),
+                received_date=_convert_timestamp(email_data.get('received')),
+                is_read=email_data.get('is_read', False)
+            )
+            if not session.query(Email).filter_by(id=email.id).first():
+                email_objs.append(email)
+        if email_objs:
+            session.bulk_save_objects(email_objs)
             session.commit()
         session.close()
 
