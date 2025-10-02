@@ -118,7 +118,8 @@ The project uses [python-dotenv](https://pypi.org/project/python-dotenv/) to aut
 
 ---
 
-### How to Obtain `gmail_credentials.json`
+
+## How to Obtain `gmail_credentials.json`
 
 - Go to [Google Cloud Console](https://console.cloud.google.com/).
 - Create a new project or select an existing one.
@@ -131,3 +132,14 @@ The project uses [python-dotenv](https://pypi.org/project/python-dotenv/) to aut
 Do **not** commit or share your `credentials.json` file publicly.
 
 ---
+
+## About `token.json`
+
+When you run the Gmail API scripts for the first time, you will be prompted to authorize access in your browser/console. After successful authorization, a file named `token.json` will be generated automatically in your project directory. This file securely stores your access and refresh tokens.
+
+**Purpose:**
+- `token.json` allows the app to reuse your credentials for future runs, so you do not have to authorize every time.
+- If `token.json` is present and valid, the app will use it to authenticate silently.
+- If you delete or invalidate `token.json`, you will be prompted to authorize again.
+
+**Do not share or commit your `token.json` file publicly.**
