@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment
+.env
+venv/
+.env.*
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Token and credentials
+*.json
+token.json
+gmail_credentials.json
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# Database
+*.db
+
+# Test cache
+*.pytest_cache/
+
+# Other
+*.sqlite3
+
+# Ignore compiled files
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Ignore coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+# Ignore rules

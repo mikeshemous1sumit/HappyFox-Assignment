@@ -1,0 +1,96 @@
+{
+  "rules": [
+    {
+      "conditions": [
+        {
+          "field": "From",
+          "predicate": "Equals",
+          "value": "urban@parakeet-ai.com"
+        }
+      ],
+      "predicate": "Any",
+      "actions": [
+        {
+          "action": "Mark as read"
+        },
+        {
+          "action": "Move Message",
+          "destination": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "field": "Received",
+          "predicate": "Less than days",
+          "value": "3"
+        }
+      ],
+      "predicate": "Any",
+      "actions": [
+        {
+          "action": "Mark as unread"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "field": "Received",
+          "predicate": "Greater than months",
+          "value": "1"
+        }
+      ],
+      "predicate": "Any",
+      "actions": [
+        {
+          "action": "Move Message",
+          "destination": "ARCHIVE"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "field": "Subject",
+          "predicate": "Does not Contain",
+          "value": "Invoice"
+        }
+      ],
+      "predicate": "Any",
+      "actions": [
+        {
+          "action": "Move Message",
+          "destination": "IMPORTANT"
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "field": "From",
+          "predicate": "Equals",
+          "value": "apple@apple.com"
+        },
+        {
+          "field": "Subject",
+          "predicate": "Equals",
+          "value": "Receipt"
+        },
+        {
+          "field": "Received",
+          "predicate": "Less than days",
+          "value": "7"
+        }
+      ],
+      "predicate": "All",
+      "actions": [
+        {
+          "action": "Move Message",
+          "destination": "PURCHASES"
+        }
+      ]
+    }
+  ]
+}

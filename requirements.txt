@@ -1,0 +1,12 @@
+google-auth==2.16.0
+google-auth-oauthlib==0.4.6
+google-api-python-client==2.61.0
+SQLAlchemy==1.4.39
+pandas==1.5.3
+pytest==7.2.0
+pytest-mock==3.10.0
+jsonschema==4.17.3
+sqlalchemy
+psycopg2
+pytest
+python-dotenv
